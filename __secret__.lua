@@ -1,7 +1,7 @@
 if not game:IsLoaded()then game.Loaded:Wait()end
 ownerUser = game.HttpService:JSONDecode(readfile("OWNER.name"))[1]
 
--- test ver 4
+-- test ver 5
 
 --#################--
 ---- RUN CHECKER ----
@@ -855,19 +855,19 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                 local Radius = 5
                 local Root, TRoot = game.Players.LocalPlayer.Character.HumanoidRootPart, game.Players[speaker.Name].Character.HumanoidRootPart;
                 local oldTick = tick()
-                local bots : number = countBots()
+                local Bots : number = countBots()
                 local thread = coroutine.create(function()
                     local code,err = pcall(function()
                         while true do
                             print("orbit",threadLoops["Test"])
-                            for i = 1,360/bots*BotIndex do
-                                Root.CFrame = CFrame.new(TRoot.CFrame.Position)*CFrame.Angles(0, math.rad((360/Bots*botIndex)+((tick()-oldTick)*Speed*50)), 0)*CFrame.new(0, 0, Radius)
+                            for i = 1,360/Bots*BotIndex do
+                                Root.CFrame = CFrame.new(TRoot.CFrame.Position)*CFrame.Angles(0, math.rad((360/Bots*BotIndex)+((tick()-oldTick)*Speed*50)), 0)*CFrame.new(0, 0, Radius)
                                 if threadLoops["Test"] == true then print("Disabling") coroutine.yield() end;task.wait()
                             end
                         end
                     end)
                     if not code then
-                        error(err)
+                        warn(err)
                     end
                 end)
                 coroutine.resume(thread)

@@ -1,7 +1,7 @@
 if not game:IsLoaded()then game.Loaded:Wait()end
 ownerUser = game.HttpService:JSONDecode(readfile("OWNER.name"))[1]
 
--- test ver 1
+-- test ver 2
 
 --#################--
 ---- RUN CHECKER ----
@@ -126,7 +126,7 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                         local Target = game.Players[cmd]
                         local Humanoid = game.Players.LocalPlayer.Character.Humanoid;
                         Humanoid.MoveTo(Humanoid, Target.Character.HumanoidRootPart.Position);
-                        if threadLoops["Follow"] then coroutine.yield() end;task.wait(0.06)
+                        if threadLoops["Follow"] == true then coroutine.yield() end;task.wait(0.06)
                     end
                 end)
                 coroutine.resume(thread)
@@ -299,7 +299,7 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                     while true do 
                         print(threadLoops["Jump"])
                         game.Players.LocalPlayer.Character.Humanoid.Jump = true
-                        if threadLoops["Jump"] then coroutine.yield() end;wait()
+                        if threadLoops["Jump"] == true then coroutine.yield() end;wait()
                     end
                 end)
                 coroutine.resume(thread)
@@ -392,7 +392,7 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                     local thread = coroutine.create(function()
                         while true do 
                             Root.CFrame = CFrame.new(TRoot.Position + Vector3.new(math.sin(tick() * Speed) * Radius, 0, math.cos(tick() * Speed) * Radius), TRoot.Position);
-                            if threadLoops["Orbit"] then coroutine.yield() end;task.wait()
+                            if threadLoops["Orbit"] == true then coroutine.yield() end;task.wait()
                         end
                     end)
                     coroutine.resume(thread)
@@ -407,7 +407,7 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                     local thread = coroutine.create(function()
                         while true do 
                             Root.CFrame = CFrame.new(TRoot.Position + Vector3.new(math.sin(tick() * Speed) * Radius, 0, math.cos(tick() * Speed) * Radius), TRoot.Position);
-                            if threadLoops["Orbit"] then coroutine.yield() end;task.wait()
+                            if threadLoops["Orbit"] == true then coroutine.yield() end;task.wait()
                         end
                     end)
                     coroutine.resume(thread)
@@ -590,7 +590,7 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                     while true do
                         ChatEvent(Args)
                         task.wait(DELAY)
-                        if threadLoops["SaySpam"] then coroutine.yield() end
+                        if threadLoops["SaySpam"] == true then coroutine.yield() end
                     end
                 end)
                 coroutine.resume(SpamThread)
@@ -848,9 +848,9 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
             end
             if AddCmd("test") then
                 --- Toggle
-                    threadLoops["Test"] = true
-                    task.wait(0.001)
-                    threadLoops["Test"] = false
+                    threadLoops["Test"]=true
+                    task.wait(0.05)
+                    threadLoops["Test"]=false
                 --- Toggle
                 local Speed = 5
                 local Radius = 5
@@ -859,11 +859,11 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                 local bots : number = countBots()
                 local thread = coroutine.create(function()
                     while true do
-                        print("orbit")
+                        print("orbit",threadLoops["Test"])
                         for i = 1,360/bots*BotIndex do
                             Root.CFrame = CFrame.new(TRoot.CFrame.Position)*CFrame.Angles(0, math.rad((360/Bots*botIndex)+((tick()-oldTick)*Speed*50)), 0)*CFrame.new(0, 0, Radius)
+                            if threadLoops["Test"] == true then print("Disabling") coroutine.yield() end;task.wait()
                         end
-                        if threadLoops["Test"] then coroutine.yield() end;task.wait()
                     end
                 end)
                 coroutine.resume(thread)

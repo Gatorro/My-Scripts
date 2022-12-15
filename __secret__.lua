@@ -1,7 +1,7 @@
 if not game:IsLoaded()then game.Loaded:Wait()end
 ownerUser = game.HttpService:JSONDecode(readfile("OWNER.name"))[1]
 
--- test ver 2
+-- test ver 3
 
 --#################--
 ---- RUN CHECKER ----
@@ -749,7 +749,6 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                 for i, v in pairs(threadLoops) do
                     if v == false then
                         threadLoops[i] = true
-                        threadscount += 1
                     end
                 end
                 loadstring(myScript)()

@@ -1,7 +1,7 @@
 if not game:IsLoaded()then game.Loaded:Wait()end
 ownerUser = game.HttpService:JSONDecode(readfile("OWNER.name"))[1]
 
--- test ver 5
+-- test ver 6
 
 --#################--
 ---- RUN CHECKER ----
@@ -856,6 +856,8 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                 local Root, TRoot = game.Players.LocalPlayer.Character.HumanoidRootPart, game.Players[speaker.Name].Character.HumanoidRootPart;
                 local oldTick = tick()
                 local Bots : number = countBots()
+                ChatEvent(Bots.." Bots")
+                ChatEvent(BotIndex.." Index")
                 local thread = coroutine.create(function()
                     local code,err = pcall(function()
                         while true do

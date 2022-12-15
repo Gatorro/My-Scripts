@@ -1,7 +1,7 @@
 if not game:IsLoaded()then game.Loaded:Wait()end
 ownerUser = game.HttpService:JSONDecode(readfile("OWNER.name"))[1]
 
--- test ver 6
+-- test ver 7
 
 --#################--
 ---- RUN CHECKER ----
@@ -36,7 +36,7 @@ local prefix = "."
 local commandThreads = {}
 local threadLoops = {["SaySpam"]=true,["Jump"]=true,["Orbit"]=true,["Follow"]=true,["Test"]=true}
 --------------------------
-local manualIndexes = {["CpBJm"]=1,["PtlBC"]=2,["cqpkY"]=3,["DWbNZ"]=4,["VtZoD"]=5}
+local manualIndexes = {["CpBJm"]=1,["PtlBC"]=2,["VtZoD"]=3,["DWbNZ"]=4,["cqpkY"]=5}
 local BotIndex : number = manualIndexes[game.Players.LocalPlayer.Name]
 -------------------------Type A      Type A      Type P      Type P      Type P
 function countBots()

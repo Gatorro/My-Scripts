@@ -1,7 +1,7 @@
 if not game:IsLoaded()then game.Loaded:Wait()end
 ownerUser = game.HttpService:JSONDecode(readfile("OWNER.name"))[1]
 
--- test ver 7
+-- test ver 8
 
 --#################--
 ---- RUN CHECKER ----
@@ -36,9 +36,9 @@ local prefix = "."
 local commandThreads = {}
 local threadLoops = {["SaySpam"]=true,["Jump"]=true,["Orbit"]=true,["Follow"]=true,["Test"]=true}
 --------------------------
-local manualIndexes = {["CpBJm"]=1,["PtlBC"]=2,["VtZoD"]=3,["DWbNZ"]=4,["cqpkY"]=5}
+local manualIndexes = {["CpBJm"]=1,["PtlBC"]=2,["VtZoD"]=3,["DWbNZ"]=4,["cqpkY"]=5,["bvgmw"]=6,["OXzGv"]=7,["ZFCAH"]=8,["LTLsw"]=9}
+-------------------------Type A+?   Type A+?     Type P      Type P      Type P      Type P+     Type P+    Type P+      ype P+
 local BotIndex : number = manualIndexes[game.Players.LocalPlayer.Name]
--------------------------Type A      Type A      Type P      Type P      Type P
 function countBots()
     local count = 0
     for i,v in pairs(game:GetService('Players'):GetChildren()) do
@@ -875,6 +875,9 @@ __main = onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                 coroutine.resume(thread)
             end
             if AddCmd("stop") then
+                game.Players.LocalPlayer.Character.Animate.Disabled = true
+                task.wait()
+                game.Players.LocalPlayer.Character.Animate.Disabled = false
                 local threadscount = 0
                 for i,v in pairs(commandThreads) do
                     threadscount+=1

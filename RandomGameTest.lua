@@ -3,8 +3,8 @@ if Players.LocalPlayer.Name == "VQDOj" then
     __theColor = theColor
     __DISTANCE = DISTANCE
 else
-    __theColor = theColor
-    __DISTANCE = DISTANCE
+    __theColor = theColor2
+    __DISTANCE = DISTANCE2
 end
 --// __DISTANCE & Color
 local tracker = game.Players.LocalPlayer.Trackers
